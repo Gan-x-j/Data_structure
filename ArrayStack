@@ -1,0 +1,30 @@
+package cn.day2.clas;
+
+//利用数组来实现顺序栈
+public class ArrayStack{
+    private String[] items;
+    private int count;    //栈中的元素个数
+    private int n;        //栈的最大容量为n
+
+    //对栈进行初始化
+    public ArrayStack(){
+        this.items = new String[n];
+        this.count = count;
+        this.n = n;
+    }
+
+    //入栈操作
+    public boolean push(String item){
+        if(count==n)return false;
+        items[count] = item;
+        ++count;
+        return true;
+    }
+
+    //出栈操作
+    public String pop(){
+        if(count==0)return null;
+        String tmp = items[count-1];
+        return tmp;
+    }
+}
