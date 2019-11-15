@@ -1,0 +1,50 @@
+package cn.day2.clas;
+
+//用链表实现栈
+public class StackBasedOnLinkList{
+    private Node top = null;
+
+    //入栈操作
+    public void push(int value){
+        Node newnode = new Node(value,null);
+        if(top==null)top = newnode;
+        else{
+            newnode.next = top;
+            top = newnode;
+        }
+    }
+
+    //出栈操作
+    public int pop(){
+        if(top==null)return -1;    //代表出栈失败，链栈为空
+        else{
+            int value = top.data;
+            top = top.next;
+            return value;
+        }
+    }
+
+    //打印栈中元素
+    public void printAll(){
+        Node p = top;
+        while(p!=null){
+            System.out.println(p.data + " ");
+            p = p.next;
+        }
+        System.out.println(p.data);
+    }
+
+    //用单链表实现，先定义单链表结点
+    public static class Node{
+        private int data;
+        private Node next;
+
+        public Node(int data,Node next){
+            this.data = data;
+            this.next = next;
+        }
+        public int getData(){
+            return data;
+        }
+    }
+}
