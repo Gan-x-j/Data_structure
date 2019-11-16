@@ -1,0 +1,29 @@
+package cn.day2.clas;
+
+public class CircularQueue{
+    private String[] items;
+    private int n;   //数组的大小为n
+    private int head;
+    private int tail;
+
+    public CircularQueue(int capacity){
+        items = new String[capacity];
+        this.n = capacity;
+    }
+
+    //入队操作
+    public boolean enqueue(String item){
+        if(head == (tail+1)%n)return false;
+        items[tail] = item;
+        tail = (tail+1)%n;
+        return false;
+    }
+
+    //出队操作
+    public String dequeue(){
+        if(head==tail)return null;
+        String item = items[head];
+        head = (head+1)%n;
+        return item;
+    }
+}
